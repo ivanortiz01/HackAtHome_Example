@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="ApplicationName">Hack@Home</string>
+  <string name="contrasenia">Password:</string>
+  <string name="correo">Email:</string>
+  <string name="validar">Validate</string>
+  <string name="ErrorAutenticacionCampos">The fields of Email and Password are mandatory, they can not be empty.</string>
+  <string name="ErrorAutenticacionTitulo">Authentication Error</string>
+  <string name="ErrorAutenticacionInterno">Internal authentication error.</string>
+  <string name="ErrorAutenticacionInvalido">Username or Password are Invalid.</string>
+  <string name="ErrorListaActividadesInterno">Internal error loading activity list. Please try again later.</string>
+  <string name="evidencias">Evidence</string>
+  <string name="descripcion">Description</string>
+  <string name="ErrorListaActividadesTitulo">Activity List Error</string>
+  <string name="ErrorDetalleActividadTitulo">Error in Activity Detail</string>
+  <string name="ErrorDetalleActividadInterno">Internal error loading activity detail. Please try again later.</string>
+</resources>
