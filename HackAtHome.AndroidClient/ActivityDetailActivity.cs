@@ -37,7 +37,7 @@ namespace HackAtHome.AndroidClient
 
             SetContentView(Resource.Layout.ActivityDetail);
 
-            UserNameViewText = FindViewById<TextView>(Resource.Id.textViewNameActivitiesList);
+            UserNameViewText = FindViewById<TextView>(Resource.Id.textViewNameActivityDetail);
             TitleViewText = FindViewById<TextView>(Resource.Id.textViewTitleActivityDetail);
             StatusViewText = FindViewById<TextView>(Resource.Id.textViewStatusActivityDetail);
             DescriptionViewText = FindViewById<TextView>(Resource.Id.textViewDescriptionActivityDetail);
@@ -73,6 +73,7 @@ namespace HackAtHome.AndroidClient
                 }
                 
                 UserNameViewText.Text = UserData.FullName;
+                TitleViewText.Text = Evidence.Title;
                 StatusViewText.Text = Evidence.Status;
                 DescriptionViewText.Text = EvidenceDetail.Description;
                 Koush.UrlImageViewHelper.SetUrlDrawable(ImageView, EvidenceDetail.Url);
