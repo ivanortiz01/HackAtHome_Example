@@ -2,6 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="HackAtHome.AndroidClient" android:versionCode="1" android:versionName="1.0" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="16" />
 	<uses-permission android:name="android.permission.INTERNET" />
-	<application android:label="HackAtHome" android:icon="@drawable/App"
-               android:theme="@android:style/Theme.Material.Light"></application>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<application android:label="HackAtHome" android:icon="@drawable/App" android:theme="@android:style/Theme.Material.Light"></application>
 </manifest>

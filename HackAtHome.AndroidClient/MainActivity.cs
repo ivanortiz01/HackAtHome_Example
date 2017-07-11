@@ -52,15 +52,15 @@ namespace HackAtHome.AndroidClient
             {
                 ResultInfo result = await autenticationService.AutenticateAsync(StudentEmail, Password);
                 if (SUCCESS.Equals(result.Status.ToString().ToUpper()))
-                {                    
+                {
+                    ProcessDialog.Dismiss();
                     var Intent = new Android.Content.Intent(this, typeof(ActivitiesListActivity));
                     Intent.PutExtra(AndroidConstants.USER_DATA_KEY, JsonConvert.SerializeObject(result));
-
-                    ProcessDialog.Dismiss();
                     StartActivity(Intent);
                 }
                 else
                 {
+                    ProcessDialog.Dismiss();
                     AndroidUtils.ShowMessage(this, GetString(Resource.String.ErrorAutenticacionTitulo), GetString(Resource.String.ErrorAutenticacionInvalido));
                 }
             }
