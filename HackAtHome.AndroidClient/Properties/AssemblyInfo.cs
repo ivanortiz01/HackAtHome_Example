@@ -29,4 +29,5 @@ using Android.App;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: Application(Theme = "@android:style/Theme.Holo")]
+//[assembly: Application(Theme = "@android:style/Theme.Holo")]
+[assembly: Application(Theme = "@android:style/Theme.Material.Light")]

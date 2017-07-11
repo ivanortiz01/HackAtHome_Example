@@ -1,13 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 using HackAtHome.Entities;
 using HackAtHome.SAL;
@@ -16,7 +11,7 @@ using HackAtHome.AndroidClient.Utils;
 
 namespace HackAtHome.AndroidClient
 {
-    [Activity(Label = "@string/ApplicationName", Icon = "@drawable/app", Theme = "@android:style/Theme.Holo")]
+    [Activity(Label = "@string/ApplicationName", Icon = "@drawable/app", Theme = "@android:style/Theme.Material.Light")]
     public class ActivityDetailActivity : Activity
     {
         private ResultInfo UserData;
@@ -28,6 +23,7 @@ namespace HackAtHome.AndroidClient
         private TextView StatusViewText;
         private TextView DescriptionViewText;
         private ImageView ImageView;
+        private ProgressDialog ProcessDialog;
 
         private static ActiviesService ACTIVIES_SERVICE = new ActiviesService();
 
@@ -36,6 +32,8 @@ namespace HackAtHome.AndroidClient
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.ActivityDetail);
+
+            ProcessDialog = AndroidUtils.ShowLoadDialog(this, GetString(Resource.String.Cargando));
 
             UserNameViewText = FindViewById<TextView>(Resource.Id.textViewNameActivityDetail);
             TitleViewText = FindViewById<TextView>(Resource.Id.textViewTitleActivityDetail);
@@ -53,13 +51,14 @@ namespace HackAtHome.AndroidClient
             outState.PutString(AndroidConstants.USER_DATA_KEY, JsonConvert.SerializeObject(UserData));
             outState.PutString(AndroidConstants.EVIDENCE_DATA_KEY, JsonConvert.SerializeObject(Evidence));
             outState.PutString(AndroidConstants.EVIDENCE_DETAIL_DATA_KEY, JsonConvert.SerializeObject(EvidenceDetail));
-            //outState.PutParcelable(AndroidConstants.EVIDENCE_LIST_KEY, ListActivities.OnSaveInstanceState());
         }
 
         private async void create(Bundle bundle)
         {
             try
-            {                
+            {
+                ProcessDialog.Show();
+
                 if (bundle == null)
                 {
                     UserData = JsonConvert.DeserializeObject<ResultInfo>(Intent.GetStringExtra(AndroidConstants.USER_DATA_KEY));
@@ -77,6 +76,8 @@ namespace HackAtHome.AndroidClient
                 StatusViewText.Text = Evidence.Status;
                 DescriptionViewText.Text = EvidenceDetail.Description;
                 Koush.UrlImageViewHelper.SetUrlDrawable(ImageView, EvidenceDetail.Url);
+
+                ProcessDialog.Dismiss();
             }
             catch (Exception ex)
             {

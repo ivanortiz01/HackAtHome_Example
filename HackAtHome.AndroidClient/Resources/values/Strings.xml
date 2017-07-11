@@ -14,4 +14,5 @@
   <string name="ErrorListaActividadesTitulo">Error en Listado de Actividades</string>
   <string name="ErrorDetalleActividadTitulo">Error en Detalle de Actividad</string>
   <string name="ErrorDetalleActividadInterno">Error interno al cargar detalle de actividad. Intentelo más tarde.</string>
+  <string name="Cargando">Cargando...</string>
 </resources>

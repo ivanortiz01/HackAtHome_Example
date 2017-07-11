@@ -16,5 +16,19 @@ namespace HackAtHome.AndroidClient.Utils
             Alert.SetButton("OK", (s, ev) => { });
             Alert.Show();
         }
+
+        public static ProgressDialog ShowLoadDialog(Context context, string message)
+        {
+            Android.App.ProgressDialog progress;
+
+            progress = new Android.App.ProgressDialog(context);
+            progress.Indeterminate = true;
+            progress.SetProgressStyle(Android.App.ProgressDialogStyle.Spinner);
+            progress.SetMessage(message);
+            progress.SetCancelable(false);
+
+            return progress;
+
+        }
     }
 }

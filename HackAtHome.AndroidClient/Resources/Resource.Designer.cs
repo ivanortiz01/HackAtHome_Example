@@ -158,6 +158,9 @@ namespace HackAtHome.AndroidClient
 			// aapt resource value: 0x7f040000
 			public const int ApplicationName = 2130968576;
 			
+			// aapt resource value: 0x7f04000e
+			public const int Cargando = 2130968590;
+			
 			// aapt resource value: 0x7f040004
 			public const int ErrorAutenticacionCampos = 2130968580;
 			
